@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 import codesquad.UnAuthenticationException;
 import codesquad.domain.Valid;
 import codesquad.security.HttpSessionUtils;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping("")
-    public String list(Model model){
+    public String list(Model model) {
         model.addAttribute("users", userService.findAll());
         return "/user/list";
     }
@@ -48,7 +47,7 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String loginForm(){
+    public String loginForm() {
         return "/user/login";
     }
 
@@ -65,7 +64,7 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(@LoginUser User loginUser, HttpSession session){
+    public String logout(@LoginUser User loginUser, HttpSession session) {
         session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);
         return "redirect:/";
     }

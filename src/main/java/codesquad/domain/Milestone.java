@@ -52,11 +52,11 @@ public class Milestone extends AbstractEntity {
         return endDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 
-    public int getOpen() {
+    public long getOpen() {
         return issues.numberOfOpen();
     }
 
-    public int getClosed() {
+    public long getClosed() {
         return issues.sizeOfIssues() - getOpen();
     }
 }
